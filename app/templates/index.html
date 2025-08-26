@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verify Emails</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="overflow-hidden">
+    <main class="min-h-screen flex flex-col items-center justify-center p-8">
+      <div class="md:h-50 h-30 flex items-center justify-center">
+        <h1 class="font-bold text-3xl text-yellow-400">
+          Verify
+          <span class="font-bold text-3xl text-sky-500">Smart</span> Emails
+        </h1>
+      </div>
+      <div
+        class="bg-stone-300 h-150 w-100 md:h-120 md:w-300 rounded shadown-lg flex flex-col items-center justify-center p-8"
+      >
+        <h1 class="animate-pulse duration-100 text-3xl text-sky-500 hidden" id="analisando">ANALISANDO . . .</h1>
+        <p class="md:relative md:bottom-8 relative bottom-20" id="instructionText">
+          Por favor, selecione a opção a ser enviada. Pode estar escolhendo
+          entre Texto ou arquivo ".txt" ou ".pdf".
+        </p>
+        <div class="" id="resultArea">
+          {% if classification and suggested_reply or error %}
+            <div>
+              {% if error %}
+                <p class="text-red-500 font-bold">{{ error }}</p>
+              {% else %}
+                <p class="font-bold text-red-500">Classificação: {{ classification }}</p>
+                <p class="font-bold text-red-500">Resposta Sugerida: {{ suggested_reply }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+        <div>
+          <form action="/classify" method="post" enctype="multipart/form-data" id="formContent">
+            <div class="flex flex-col items-center gap-10">
+                <p class="text-red-500 cursor-pointer hidden" id="changeText">Clique Para Enviar Texto</p>
+                <p class="text-red-500 cursor-pointer " id="changeFile">Clique Para Enviar Arquivo</p>
+              <label for="email_text" class="font-bold " id="labelText">Enviar Mensagem:</label>
+              <textarea
+                name="email_text"
+                id="email_text"
+                class="border md:w-100 md:h-30 resize-none border-blue-500 "
+              ></textarea>
+              <div class="flex items-center justify-center w-full hidden" id="dropzone_file">
+                <label
+                  for="dropzone-file"
+                  class="flex flex-col items-center justify-center w-full h-30 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-800 bg-gray-700 border-gray-600 hover:border-gray-500 hover:bg-gray-600"
+                >
+                  <div
+                    class="flex flex-col items-center justify-center pt-5 pb-6"
+                  >
+                    <svg
+                      class="w-8 h-8 mb-4 text-gray-400"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 20 16"
+                    >
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
+                      />
+                    </svg>
+                    <p class="mb-2 text-sm text-gray-400">
+                      <span class="font-semibold p-10">Clique para selecionar ou arraste</span> 
+                    </p>
+                    <p class="text-xs text-gray-400">
+                     Arquivos Suportados (TXT PDF)
+                    </p>
+                  </div>
+                  <input id="dropzone-file" type="file" class="hidden" name="file_upload"/>
+                </label>
+              </div>
+              <div class="flex items-center justify-center gap-10">
+                 <button type="submit" id="btnSubmition" class="bg-sky-500 w-30 h-15 rounded hover:bg-sky-600 hover:cursor-pointer text-white">Enviar</button>
+                 <button id="btnSendAgain" class="bg-green-500 w-30 h-15 rounded hover:bg-green-400 hover:cursor-pointer text-white">Limpar Mensagem</button>
+              </div>
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="{{ url_for('static', path='/js/script.js') }}"></script>
+  </body>
+</html>
