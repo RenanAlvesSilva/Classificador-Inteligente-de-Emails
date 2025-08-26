@@ -38,17 +38,15 @@ Siga os passos abaixo para configurar e executar o projeto em seu ambiente local
 
 git clone [https://github.com/RenanAlvesSilva/teste-treinee.git](https://github.com/RenanAlvesSilva/teste-treinee.git)
 cd teste-treinee
-# Cria o ambiente
-python -m venv venv
 
 **2. Crie e Ative um Ambiente Virtual:**
-# Cria o ambiente
+ Cria o ambiente
 python -m venv venv
 
-# Ativa o ambiente (Windows)
+ Ativa o ambiente (Windows)
 .\venv\Scripts\activate
 
-# Ativa o ambiente (macOS/Linux)
+ Ativa o ambiente (macOS/Linux)
 source venv/bin/activate
 
 3. Instale as Dependências:
