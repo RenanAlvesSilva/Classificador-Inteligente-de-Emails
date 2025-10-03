@@ -36,7 +36,7 @@ Siga os passos abaixo para configurar e executar o projeto em seu ambiente local
 
 **1. Clone o Repositório:**
 
-git clone [https://github.com/RenanAlvesSilva/teste-treinee.git](https://github.com/RenanAlvesSilva/teste-treinee.git)
+git clone [https://github.com/RenanAlvesSilva/Classificador-Inteligente-de-Emails.git](https://github.com/RenanAlvesSilva/Classificador-Inteligente-de-Emails.git)
 cd teste-treinee
 
 **2. Crie e Ative um Ambiente Virtual:**
