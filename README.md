@@ -1,6 +1,6 @@
 # Classificador Inteligente de Emails
 
-## Projeto de Desafio Técnico para Vaga de Estágio
+## Projeto com IA Generativa Google Gemini
 
 Este é um aplicativo web desenvolvido como solução para um desafio técnico, projetado para otimizar a triagem de emails em um ambiente corporativo financeiro. A aplicação utiliza Inteligência Artificial Generativa (Google Gemini) para classificar o conteúdo de emails como "Produtivo" ou "Improdutivo" e sugerir uma resposta apropriada, tudo através de uma interface web interativa e responsiva.
 
